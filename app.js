@@ -18,7 +18,6 @@ const jobsRouter = require("./routes/jobs");
 //middleware
 const cors = require("cors");
 const helmet = require("helmet");
-const xss = require("xss");
 const { rateLimit } = require("express-rate-limit")
 
 const limiter = rateLimit({
@@ -34,12 +33,7 @@ app.use(express.json());
 app.use(limiter);
 app.use(cors());
 app.use(helmet());
-app.use((req,res,next)=>{
-  xss(req.body);
-  xss(req.query);
-  xss(req.params);
-  next();
-});
+
 // routes
 app.use("/", express.static("./frontend/"));
 app.use("/api/v1/auth/", authRouter);
