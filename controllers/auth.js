@@ -9,6 +9,10 @@ const signup = async (req, res) => {
   if (!name || !email || !password) {
     throw new BadRequestError('Please provide all values');
   }
+  const emailReg =/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if(!emailReg.test(email)){
+    throw new BadRequestError("please provide valid email");
+  }
   await User.init();
   const user = await User.create({ name, email, password });
   const token = user.createJWT();
