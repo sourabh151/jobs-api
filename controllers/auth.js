@@ -32,7 +32,7 @@ const login = async function(req, res) {
   const user = await User.findOne({ email: email });
 
   if (!user) {
-    throw new UnauthenticatedError('no Account Associated with these credentials');
+    throw new UnauthenticatedError('Invalid Credentials');
   }
   if (!compareSync(password, user.password)) {
     throw new UnauthenticatedError('Invalid Credentials');
