@@ -1,0 +1,25 @@
+MongooseError: this email is already associated with an account
+    at Schema._transformDuplicateKeyError (E:\projects\shared\node-express-course-main\06-jobs-api\starter\node_modules\mongoose\lib\schema.js:2862:12)
+    at E:\projects\shared\node-express-course-main\06-jobs-api\starter\node_modules\mongoose\lib\model.js:499:30
+    at E:\projects\shared\node-express-course-main\06-jobs-api\starter\node_modules\mongoose\lib\model.js:380:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  [cause]: MongoServerError: E11000 duplicate key error collection: jobs-api.users index: email_1 dup key: { email: "sourabh@abc.com" }
+      at InsertOneOperation.execute (E:\projects\shared\node-express-course-main\06-jobs-api\starter\node_modules\mongodb\lib\operations\insert.js:51:19)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async tryOperation (E:\projects\shared\node-express-course-main\06-jobs-api\starter\node_modules\mongodb\lib\operations\execute_operation.js:207:20)
+      at async executeOperation (E:\projects\shared\node-express-course-main\06-jobs-api\starter\node_modules\mongodb\lib\operations\execute_operation.js:75:16)
+      at async Collection.insertOne (E:\projects\shared\node-express-course-main\06-jobs-api\starter\node_modules\mongodb\lib\collection.js:157:16) {
+    errorLabelSet: Set(0) {},
+    errorResponse: {
+      index: 0,
+      code: 11000,
+      errmsg: 'E11000 duplicate key error collection: jobs-api.users index: email_1 dup key: { email: "sourabh@abc.com" }',
+      keyPattern: [Object],
+      keyValue: [Object]
+    },
+    index: 0,
+    code: 11000,
+    keyPattern: { email: 1 },
+    keyValue: { email: 'sourabh@abc.com' }
+  }
+}

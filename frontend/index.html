@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./index.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <nav>
+      <h1>JOBS-API</h1>
+      <div class="nav-btn">
+        <button class="login">Login</button>
+        <button class="signup">Signup</button>
+      </div>
+    </nav>
+    <div class="page">
+      <form action="/login" class="login-form">
+        <h1>Login</h1>
+        <input type="email" name="email" placeholder="email">
+        <input type="password" name="password" placeholder="password">
+        <button type="submit">Login</button>
+      </form>
+      <form action="/signup" class="signup-form hidden">
+        <h1>Signup</h1>
+        <input type="text" name="name" placeholder="name">
+        <input type="email" name="email" placeholder="email">
+        <input type="password" name="password" placeholder="password">
+        <button type="submit">Signup</button>
+      </form>
+      <p class="status invisible"></p>
+    </div>
+
+  </main>
+</body>
+
+</html>
