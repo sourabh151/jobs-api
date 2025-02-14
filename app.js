@@ -22,20 +22,24 @@ const xss = require("xss");
 const { rateLimit } = require("express-rate-limit")
 
 const limiter = rateLimit({
-	windowMs: 15 * 60 * 1000, // 15 minutes
-	limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
-	standardHeaders: 'draft-8', // draft-6: `RateLimit-*` headers; draft-7 & draft-8: combined `RateLimit` header
-	legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
-	// store: ... , // Redis, Memcached, etc. See below. 
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
+  standardHeaders: 'draft-8', // draft-6: `RateLimit-*` headers; draft-7 & draft-8: combined `RateLimit` header
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
+  // store: ... , // Redis, Memcached, etc. See below.
 })
 
 app.use(express.json());
 // extra packages
-app.use(limiter());
+app.use(limiter);
 app.use(cors());
 app.use(helmet());
-app.use(xss());
-
+app.use((req,res,next)=>{
+  xss(req.body);
+  xss(req.query);
+  xss(req.params);
+  next();
+});
 // routes
 app.use("/", express.static("./frontend/"));
 app.use("/api/v1/auth/", authRouter);
@@ -48,14 +52,14 @@ app.use(errorHandlerMiddleware);
 const port = process.env.PORT || 3000;
 
 const start = async () => {
-	try {
-		await mongoose.connect(process.env.MONGO_URI);
-		app.listen(port, () =>
-			console.log(`Server is listening on port ${port}...`)
-		);
-	} catch (error) {
-		console.log(error);
-	}
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    app.listen(port, () =>
+      console.log(`Server is listening on port ${port}...`)
+    );
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 start();

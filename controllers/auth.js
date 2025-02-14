@@ -19,6 +19,7 @@ const signup = async (req, res) => {
   res.json({ success: true, token });
 }
 const login = async function(req, res) {
+  console.log(req.body.email,req.body.password)
   const { email, password } = req.body;
   if (!email || !password) {
     throw new BadRequestError('Please provide all values');
