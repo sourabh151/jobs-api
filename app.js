@@ -36,6 +36,7 @@ app.use(helmet());
 
 // routes
 app.use("/", express.static("./frontend/"));
+app.use("/api-docs/",express.static("./docs/"))
 app.use("/api/v1/auth/", authRouter);
 app.use("/api/v1/jobs/", authenticate, jobsRouter);
 
