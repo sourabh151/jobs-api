@@ -1,0 +1,282 @@
+_type: export
+__export_format: 4
+__export_date: 2025-02-15T04:30:19.160Z
+__export_source: insomnia.desktop.app:v10.3.0
+resources:
+  - _id: req_949264bffb42469aacc553b1ac401aa1
+    parentId: fld_54cbbb89320a445496814261f7ee534f
+    modified: 1739593648385
+    created: 1739593555490
+    url: "{{URL}}api/v1/auth/login/"
+    name: login
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email":"sourabh@abc.com",
+        	"password":"abcd"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.3.0
+    authentication: {}
+    metaSortKey: -1739593555490
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_54cbbb89320a445496814261f7ee534f
+    parentId: wrk_144463b672bf439381deb80e08d62e0f
+    modified: 1739593554538
+    created: 1739593542209
+    name: auth
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1739593542209
+    environmentType: kv
+    _type: request_group
+  - _id: wrk_144463b672bf439381deb80e08d62e0f
+    parentId: null
+    modified: 1739593722648
+    created: 1739128414812
+    name: jobs-api
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_2d1d658302714b8b89e2430341f4cd77
+    parentId: fld_54cbbb89320a445496814261f7ee534f
+    modified: 1739593677719
+    created: 1739593549609
+    url: ""
+    name: signup
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name":"sahil",
+        	"email":"sahil@abc.com",
+        	"password":"abcd"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.3.0
+    authentication: {}
+    metaSortKey: -1739593549609
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f342dd940c924f6faa8cb1be4118d5e3
+    parentId: fld_0fec2fb1edaf4c6f8aa16dae2beef3e9
+    modified: 1739593482090
+    created: 1739159674904
+    url: "{{URL}}api/v1/jobs/"
+    name: postJob
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"company":"google",
+        	"position":"pune"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.3.0
+    authentication:
+      type: bearer
+      token: "{{token}}"
+      prefix: "Bearer "
+    metaSortKey: -1739593473656
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_0fec2fb1edaf4c6f8aa16dae2beef3e9
+    parentId: wrk_144463b672bf439381deb80e08d62e0f
+    modified: 1739593457808
+    created: 1739593457808
+    name: jobs
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1739593457808
+    environmentType: kv
+    _type: request_group
+  - _id: req_332f80b4ae774ae0b761d09322e99952
+    parentId: fld_0fec2fb1edaf4c6f8aa16dae2beef3e9
+    modified: 1739593480425
+    created: 1739161438189
+    url: "{{URL}}api/v1/jobs/67ab6cd6f12fb4d197f977d8"
+    name: deleteJob
+    description: ""
+    method: DELETE
+    body: {}
+    parameters:
+      - id: pair_e2cc2066ca79447894015df9f046a9c6
+        name: ""
+        value: ""
+        description: ""
+        disabled: false
+    headers:
+      - name: User-Agent
+        value: insomnia/10.3.0
+    authentication:
+      type: bearer
+      token: "{{token}}"
+      prefix: Bearer
+    metaSortKey: -1739593473556
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_80b36bdfa7894d5b8cee880faf8914d6
+    parentId: fld_0fec2fb1edaf4c6f8aa16dae2beef3e9
+    modified: 1739593478845
+    created: 1739560341622
+    url: "{{URL}}api/v1/jobs/67ab6b841eedb01381a01180"
+    name: getJob
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication:
+      type: bearer
+      token: "{{token}}"
+      prefix: Bearer
+      disabled: false
+    preRequestScript: ""
+    metaSortKey: -1739593473456
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_a0bbb0eb4f1e4b759c5dc9fc63201946
+    parentId: fld_0fec2fb1edaf4c6f8aa16dae2beef3e9
+    modified: 1739593476407
+    created: 1739128421471
+    url: "{{URL}}api/v1/jobs/"
+    name: getAllJobs
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication:
+      type: bearer
+      token: "{{token}}"
+      prefix: Bearer
+      disabled: false
+    preRequestScript: ""
+    metaSortKey: -1739593473356
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_908e8a065379419babf29759ca99ed32
+    parentId: fld_0fec2fb1edaf4c6f8aa16dae2beef3e9
+    modified: 1739593473347
+    created: 1739201859443
+    url: "{{URL}}api/v1/jobs/67ab6b841eedb01381a01180"
+    name: patchJob
+    description: ""
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"company":"",
+        	"status":"pending"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/10.3.0
+    authentication:
+      type: bearer
+      token: "{{token}}"
+      prefix: "Bearer "
+    metaSortKey: -1739593473256
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_91af5fbf054f495f15b17296502b93c50e469840
+    parentId: wrk_144463b672bf439381deb80e08d62e0f
+    modified: 1739200957012
+    created: 1739128414823
+    name: Base Environment
+    data:
+      URL: http://localhost:5000/
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2E4ZWM0NGVlZDY0YjAyN2M2MmJlMjQiLCJuYW1lIjoic291cmFiaCIsImlhdCI6MTczOTIwMDkyNywiZXhwIjoxNzM5ODA1NzI3fQ.JJKJSvkIrRqaoTDBCuQn4erhuUizjmOtzhY9_EgC3ug
+    dataPropertyOrder:
+      "&":
+        - URL
+        - token
+    color: null
+    isPrivate: false
+    metaSortKey: 1739128414823
+    _type: environment
+  - _id: jar_91af5fbf054f495f15b17296502b93c50e469840
+    parentId: wrk_144463b672bf439381deb80e08d62e0f
+    modified: 1739130756617
+    created: 1739128414828
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
